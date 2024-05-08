@@ -58,5 +58,33 @@ test('Strong false 2', () => {
 });
 
 test('Date true 1', () => {
-  expect(isStrongPassword("4444")).toBe(false);
+  expect(isDate("12/31/2003")).toBe(true);
+});
+
+test('Date true 2', () => {
+  expect(isDate("12/1/1903")).toBe(true);
+});
+
+test('Date false 1', () => {
+  expect(isDate("1432/31/2003")).toBe(false);
+});
+
+test('Date false 2', () => {
+  expect(isDate("Dec/31/2003")).toBe(false);
+});
+
+test('Hex true 1', () => {
+  expect(isHexColor("#af8")).toBe(true);
+});
+
+test('Hex true 2', () => {
+  expect(isHexColor("#000000")).toBe(true);
+});
+
+test('Hex false 1', () => {
+  expect(isHexColor("10zb29")).toBe(false);
+});
+
+test('Hex false 2', () => {
+  expect(isHexColor("red")).toBe(false);
 });
